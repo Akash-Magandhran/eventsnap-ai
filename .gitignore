@@ -1,0 +1,28 @@
+# Backend
+backend/venv/
+backend/env/
+backend/.env
+backend/staticfiles/
+backend/media/photos/**
+backend/media/selfies/**
+backend/media/qrcodes/**
+!backend/media/photos/.gitkeep
+!backend/media/selfies/.gitkeep
+!backend/media/qrcodes/.gitkeep
+backend/.insightface/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+*.sqlite3
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# General
+.DS_Store
+*.log
+.idea/
+.vscode/

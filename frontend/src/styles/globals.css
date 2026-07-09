@@ -1,0 +1,284 @@
+/* =========================================================
+   EventSnap AI — Design Tokens
+   Subject: "found in a sea of photos" — warm photographic
+   palette + one sharp signal-orange accent for the moment
+   a face is recognized. Not generic blue SaaS glassmorphism.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Color */
+  --ink: #0B0B0F;
+  --ink-soft: #16161C;
+  --surface: #1A1A1F;
+  --surface-raised: #212128;
+  --paper: #FAF8F4;
+  --paper-dim: #F0EDE6;
+  --signal: #FF4D2E;
+  --signal-soft: #FF7A5C;
+  --signal-dim: rgba(255, 77, 46, 0.12);
+  --graphite: #6B6F76;
+  --graphite-light: #9A9DA3;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-dark: rgba(11, 11, 15, 0.08);
+  --success: #2ECC71;
+  --danger: #FF5C5C;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(11, 11, 15, 0.06);
+  --shadow-md: 0 8px 30px rgba(11, 11, 15, 0.10);
+  --shadow-lg: 0 20px 60px rgba(11, 11, 15, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(255, 77, 46, 0.25), 0 8px 30px rgba(255, 77, 46, 0.18);
+
+  --container-width: 1180px;
+}
+
+[data-theme="dark"] {
+  --bg: var(--ink);
+  --bg-elevated: var(--surface);
+  --bg-card: var(--surface-raised);
+  --text-primary: var(--paper);
+  --text-secondary: var(--graphite-light);
+  --border-color: var(--line);
+}
+
+[data-theme="light"] {
+  --bg: var(--paper);
+  --bg-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --text-primary: var(--ink);
+  --text-secondary: var(--graphite);
+  --border-color: var(--line-dark);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--signal);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 77, 46, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--signal-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 77, 46, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--signal);
+  box-shadow: 0 0 0 4px var(--signal-dim);
+}
+
+.input-field::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.input-error {
+  border-color: var(--danger) !important;
+}
+
+.field-error-text {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 6px;
+  display: block;
+}
+
+.section {
+  padding: 120px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 72px 0;
+  }
+}
+
+::selection {
+  background: var(--signal);
+  color: #fff;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--border-color) 50%, var(--bg-elevated) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

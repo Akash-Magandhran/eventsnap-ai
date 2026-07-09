@@ -1,0 +1,49 @@
+# ===== Core Framework =====
+Django==5.0.6
+djangorestframework==3.15.1
+django-cors-headers==4.3.1
+
+# ===== Auth =====
+djangorestframework-simplejwt==5.3.1
+
+# ===== Database =====
+mysqlclient==2.2.4
+
+# ===== Environment / Config =====
+python-decouple==3.8
+
+# ===== Image / Media =====
+Pillow==10.3.0
+cloudinary==1.40.0
+django-cloudinary-storage==0.3.0
+
+# ===== QR Code =====
+qrcode==7.4.2
+
+# ===== AI / Face Recognition =====
+# NOTE on version compatibility (tested combination, June 2026):
+# insightface pulls in numpy>=2.x. onnxruntime==1.17.3 was built against
+# numpy 1.x and will throw "_ARRAY_API not found" / ImportError under
+# numpy 2.x. Use a numpy-2-compatible onnxruntime build instead (we tested
+# with 1.27.0). opencv-python-headless must also be >=4.10 for numpy 2.x ABI
+# compatibility. If you must pin onnxruntime==1.17.3 for another reason,
+# pin numpy<2 instead and use opencv-python-headless==4.9.0.80 — but the
+# combination below is the one actually verified to work together.
+opencv-python-headless>=4.10.0.84
+insightface==0.7.3
+onnxruntime>=1.20.0
+numpy>=2.0.0
+scikit-learn==1.4.2
+
+# ===== API utilities =====
+django-filter==24.2
+
+# ===== Rate limiting =====
+django-ratelimit==4.1.0
+
+# ===== Production server =====
+gunicorn==22.0.0
+whitenoise==6.6.0
+
+# ===== Dev utilities =====
+django-extensions==3.2.3

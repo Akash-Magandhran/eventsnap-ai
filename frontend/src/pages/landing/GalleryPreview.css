@@ -1,0 +1,32 @@
+.gallery-masonry {
+  columns: 4;
+  column-gap: 16px;
+  margin-top: 56px;
+}
+
+@media (max-width: 960px) {
+  .gallery-masonry { columns: 3; }
+}
+
+@media (max-width: 640px) {
+  .gallery-masonry { columns: 2; }
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}

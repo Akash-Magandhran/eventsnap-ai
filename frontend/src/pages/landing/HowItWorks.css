@@ -1,0 +1,70 @@
+.how-section {
+  background: var(--bg-elevated);
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  position: relative;
+  margin-top: 64px;
+}
+
+@media (max-width: 960px) {
+  .how-steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.how-step {
+  text-align: center;
+  position: relative;
+  padding: 0 12px;
+}
+
+.how-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--signal);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.how-step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  color: var(--signal);
+}
+
+.how-step h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.how-step p {
+  font-size: 0.85rem;
+}
+
+.how-connector {
+  position: absolute;
+  top: 32px;
+  left: calc(50% + 40px);
+  right: calc(-50% + 40px);
+  height: 1px;
+  background: var(--border-color);
+}
+
+@media (max-width: 960px) {
+  .how-connector {
+    display: none;
+  }
+}
