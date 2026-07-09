@@ -179,15 +179,15 @@ SIMPLE_JWT = {
 # CORS
 # =========================================================
 CORS_ALLOWED_ORIGINS = config(
-    'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:5173,http://127.0.0.1:5173',
-    cast=Csv()
+    "CORS_ALLOWED_ORIGINS",
+    default="http://localhost:5173,http://127.0.0.1:5173,https://eventsnap-ai-lac.vercel.app",
+    cast=Csv(),
 )
-CORS_ALLOW_CREDENTIALS = True
+
 CSRF_TRUSTED_ORIGINS = config(
-    'CSRF_TRUSTED_ORIGINS',
-    default='https://*.onrender.com',
-    cast=Csv()
+    "CSRF_TRUSTED_ORIGINS",
+    default="https://*.onrender.com,https://eventsnap-ai-lac.vercel.app",
+    cast=Csv(),
 )
 
 # =========================================================
