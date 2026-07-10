@@ -24,8 +24,9 @@ export default function JoinEventPage() {
 
   const handleContinue = async () => {
     if (!user) {
-      navigate('/register', { state: { from: { pathname: `/join/${slug}` } } });
-      return;
+      navigate('/login', {
+  state: { from: { pathname: `/join/${slug}` } }
+});
     }
     setJoining(true);
     try {

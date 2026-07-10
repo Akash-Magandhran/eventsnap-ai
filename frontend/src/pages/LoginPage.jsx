@@ -26,7 +26,13 @@ export default function LoginPage() {
     try {
       const user = await login(formData.email, formData.password);
       const redirectTo = location.state?.from?.pathname;
-      navigate(redirectTo || (user.role === 'admin' ? '/admin/dashboard' : '/my-photos'));
+     if (redirectTo) {
+  navigate(redirectTo, { replace: true });
+} else if (user.role === "admin") {
+  navigate("/admin/dashboard", { replace: true });
+} else {
+  navigate("/", { replace: true });
+}
     } catch (err) {
       setServerError(err.response?.data?.message || 'Invalid email or password.');
     } finally {
