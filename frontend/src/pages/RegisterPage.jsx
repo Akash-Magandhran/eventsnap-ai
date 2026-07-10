@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
 import AuthLayout from '../components/AuthLayout';
 import Alert from '../components/Alert';
@@ -9,6 +9,7 @@ import { useAuth } from '../context/AuthContext';
 export default function RegisterPage() {
   const { register: registerUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [role, setRole] = useState('attendee');
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState('');
@@ -28,7 +29,16 @@ export default function RegisterPage() {
     setSubmitting(true);
     try {
       const user = await registerUser({ ...formData, role });
-      navigate(user.role === 'admin' ? '/admin/dashboard' : '/my-photos');
+
+const redirectTo = location.state?.from?.pathname;
+
+if (redirectTo) {
+  navigate(redirectTo, { replace: true });
+} else if (user.role === 'admin') {
+  navigate('/admin/dashboard', { replace: true });
+} else {
+  navigate('/', { replace: true });
+}
     } catch (err) {
       setServerError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {
