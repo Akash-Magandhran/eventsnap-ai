@@ -94,9 +94,15 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <p className="auth-footer-text">
-        Don't have an account? <Link to="/register">Sign up</Link>
-      </p>
+     <p className="auth-footer-text">
+  Don't have an account?{" "}
+  <Link
+    to="/register"
+    state={location.state}
+  >
+    Sign up
+  </Link>
+</p>
     </AuthLayout>
   );
 }
